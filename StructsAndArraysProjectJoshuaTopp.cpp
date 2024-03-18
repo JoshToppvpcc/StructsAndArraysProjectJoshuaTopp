@@ -45,8 +45,8 @@ int main()
 		cout << runners[i] << " ";
 		for (int j = 0; j < NCols - 1; j++) {
 			cout << milesRan[i][j] << " ";
-			cout << CalcAverage(milesRan[i][j], MaxRows);
-			cout << CalcTotal(milesRan[i][j], MaxRows) << endl;
+			//cout << CalcAverage(milesRan[i][j], MaxRows);
+			//cout << CalcTotal(milesRan[i][j], MaxRows) << endl;
 		}
 	}
 
@@ -82,10 +82,10 @@ void CalcAverage(double milesRan[][NCols], int rows) {
 void CalcTotal(double milesRan[][NCols], int rows) {
 	double sum = 0;
 	for (int i = 0; i < rows; i++) {
-		sum =0;
+		sum = 0;
 		for (int j = 0; j < NCols - 1; j++)
 			sum += milesRan[i][j];
-
+	}
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
