@@ -45,8 +45,8 @@ int main()
 		cout << runners[i] << " ";
 		for (int j = 0; j < NCols - 1; j++) {
 			cout << milesRan[i][j] << " ";
-			//cout << CalcAverage(milesRan[i][j], MaxRows);
-			//cout << CalcTotal(milesRan[i][j], MaxRows) << endl;
+			cout << CalcAverage(milesRan[i][j], MaxRows);
+			cout << CalcTotal(milesRan[i][j], MaxRows) << endl;
 		}
 	}
 
