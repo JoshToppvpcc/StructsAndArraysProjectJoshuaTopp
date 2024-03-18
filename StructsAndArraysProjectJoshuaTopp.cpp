@@ -7,12 +7,12 @@
 #include <fstream>
 using namespace std; 
 double GetTextInfo() {
-	fstream inFile("TextFile1.txt");
+	ifstream inFile;
 	inFile.open("TextFile1.txt");
-	if (inFile.is_open()) {
-		cout << "Yay";
-		return 0;
-	}
+	string line;
+	getline(inFile, line);
+	cout << line;
+	return 0;
 	
 }
 

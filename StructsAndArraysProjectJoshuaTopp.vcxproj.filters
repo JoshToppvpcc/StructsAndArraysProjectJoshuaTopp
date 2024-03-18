@@ -23,5 +23,8 @@
     <Text Include="..\TextFile1.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="RuunnersText.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
