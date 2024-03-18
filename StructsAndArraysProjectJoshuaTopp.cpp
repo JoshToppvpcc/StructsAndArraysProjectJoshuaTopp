@@ -19,13 +19,13 @@ int GetMilesRan(string runners[], double milesRan[][NCols], int MaxRows);
 // Calc. Total miles and average miles ran per day for each runner
 // Preconditions - recieves the number of miles ran each day for each runner. 
 // Post conditions - The average miles per day of each runner is calculated and output in the right spot. 
-void CalcAverage(double milesRan[][NCols], int rows);
+void CalcAverage(double milesRan[][NCols], double rows);
 
 
 //Clac toal miles of each runner in that week and display it. 
 //Preconditions - Table of milesRan[i][j] has to be accessible so the numbers can be added and returned. 
 // Post condition - The total miles of each runners' week is out put next to their average at the end of the table. 
-void CalcToal(double milesRan[][NCols], int rows);
+void CalcTotal(double milesRan[][NCols], double rows);
 	
 
 int main()
@@ -34,24 +34,21 @@ int main()
 	inFile.open("RuunnersText.txt");
 	string runners[MaxRows];
 	double milesRan[MaxRows][NCols];
-	double averages[MaxRows];
-	double totals[MaxRows];
-
 	double numRecords;
 	numRecords = GetMilesRan(runners, milesRan, MaxRows);
 	CalcAverage(milesRan, numRecords);
-
+	CalcTotal(milesRan, numRecords);
 	for (int i = 0; i < numRecords; i++) {
-		cout << runners[i] << " ";
-		for (int j = 0; j < NCols - 1; j++) {
-			cout << milesRan[i][j] << " ";
-			cout << CalcAverage(milesRan[i][j], MaxRows);
-			cout << CalcTotal(milesRan[i][j], MaxRows) << endl;
+		cout <<setw(5) << runners[i] << setw(3)<<  " ";
+		for (int j = 0; j < NCols; j++) {
+			cout << milesRan[i][j] << setw(3)<<" " ;
+		}
+			cout << endl;
+			//cout << CalcAverage(milesRan[i][j], MaxRows);
+			//cout << CalcTotal(milesRan[i][j], MaxRows) << endl;
 		}
 	}
 
-
-}
 int GetMilesRan(string runners[], double milesRan[][NCols], int MaxRows) {
 	ifstream  inFile;
 	int rows = 0;
@@ -69,22 +66,21 @@ int GetMilesRan(string runners[], double milesRan[][NCols], int MaxRows) {
 
 
 }
-void CalcAverage(double milesRan[][NCols], int rows) {
+void CalcAverage(double milesRan[][NCols], double rows) {
 	double sum = 0;
 	for (int i = 0; i < rows; i++) {
 		sum = 0;
 		for (int j = 0; j < NCols-1; j++)
 			sum += milesRan[i][j];
-		milesRan[i][NCols - 1] = sum / (NCols - 1);
-
+		(milesRan[i][NCols-1] = sum / (NCols - 1));
 	}
 }
-void CalcTotal(double milesRan[][NCols], int rows) {
+void CalcTotal(double milesRan[][NCols], double rows) {
 	double sum = 0;
 	for (int i = 0; i < rows; i++) {
 		sum = 0;
-		for (int j = 0; j < NCols - 1; j++)
-			sum += milesRan[i][j];
+		for (int j = 0; j < NCols-3; j++)
+			sum += milesRan[i][NCols-1];
 	}
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
