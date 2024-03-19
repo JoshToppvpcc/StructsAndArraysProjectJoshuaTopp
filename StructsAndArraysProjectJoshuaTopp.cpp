@@ -55,7 +55,7 @@ int GetMilesRan(string runners[], double milesRan[][NCols], int MaxRows) {
 	inFile.open("RuunnersText.txt");
 	inFile >> runners[rows];
 	while (!inFile.eof() && !(rows >= MaxRows)) {
-		for (int i = 0; i < NCols-1; i++) {
+		for (int i = 0; i < NCols-2; i++) {
 			inFile >> milesRan[rows][i];
 		}
 		rows++;
@@ -70,17 +70,17 @@ void CalcAverage(double milesRan[][NCols], double rows) {
 	double sum = 0;
 	for (int i = 0; i < rows; i++) {
 		sum = 0;
-		for (int j = 0; j < NCols-1; j++)
+		for (int j = 0; j < NCols-2; j++)
 			sum += milesRan[i][j];
-		(milesRan[i][NCols-1] = sum / (NCols - 1));
+		(milesRan[i][NCols-2] = sum / (NCols - 2));
 	}
 }
 void CalcTotal(double milesRan[][NCols], double rows) {
 	double sum = 0;
 	for (int i = 0; i < rows; i++) {
 		sum = 0;
-		for (int j = 0; j < NCols-3; j++)
-			sum += milesRan[i][NCols-1];
+		for (int j = 0; j < NCols-2; j++)
+			sum += milesRan[i][NCols-2];
 	}
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
